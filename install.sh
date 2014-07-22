@@ -26,6 +26,10 @@ $wget_ https://github.com/picrust/picrust/releases/download/0.9.2/ko_18may2012_p
 $wget_ https://github.com/picrust/picrust/releases/download/0.9.2/cog_18may2012_precalculated.tab.gz 
 
 # Prime the wrapper script with the virtualenv
-sed -i -e 's|LOCATION|'"${install_dir}"'/picrust-1.0.0/env/bin/activate.sh|' \
-    "${here}/picrust_cmd"
+sed -e 's|LOCATION|'"${install_dir}"'/picrust-1.0.0/env/bin/activate.sh|' \
+    "${here}/picrust_cmd" > /usr/bin/picrust_cmd
+
+chmod 755 /usr/bin/picrust_cmd
+
+
 
