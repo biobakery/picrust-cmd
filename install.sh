@@ -6,13 +6,16 @@ here=$(readlink -f "${0}" | sed -e 's#\(.*/\).*#\1#g')
 install_dir="${1}"
 
 # install the picrust scripts
+mkdir -p "${install_dir}"
 wget -O- "${dep_url}" | tar -C "${install_dir}" -xzf -
 virtualenv "${install_dir}/env"
 source "${install_dir}/env/bin/activate"
 pip install numpy 
 pip install cogent
 pip install biom-format
+cd "${install_dir}/picrust-1.0.0/picrust"
 python setup.py install
+cd - >/dev/null 2>&1
 deactivate
 
 # install the picrust data dependencies
@@ -26,7 +29,7 @@ $wget_ https://github.com/picrust/picrust/releases/download/0.9.2/ko_18may2012_p
 $wget_ https://github.com/picrust/picrust/releases/download/0.9.2/cog_18may2012_precalculated.tab.gz 
 
 # Prime the wrapper script with the virtualenv
-sed -e 's|LOCATION|'"${install_dir}"'/picrust-1.0.0/env/bin/activate.sh|' \
+sed -e 's|LOCATION|'"${install_dir}"'/env/bin/activate.sh|' \
     "${here}/picrust_cmd" > /usr/bin/picrust_cmd
 
 chmod 755 /usr/bin/picrust_cmd
