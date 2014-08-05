@@ -18,6 +18,8 @@ python setup.py install
 cd - >/dev/null 2>&1
 deactivate
 
+ln -s ${install_dir}/picrust-1.0.0/picrust/scripts/*.py ${install_dir}/env/bin/
+
 # install the picrust data dependencies
 datadir="${install_dir}/picrust-1.0.0/picrust/data"
 mkdir -p "${datadir}"
