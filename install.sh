@@ -13,12 +13,10 @@ source "${install_dir}/env/bin/activate"
 pip install numpy 
 pip install cogent
 pip install biom-format
-cd "${install_dir}/picrust-1.0.0/picrust"
+cd "${install_dir}/picrust-1.0.0"
 python setup.py install
 cd - >/dev/null 2>&1
 deactivate
-
-ln -s ${install_dir}/picrust-1.0.0/picrust/scripts/*.py ${install_dir}/env/bin/
 
 # install the picrust data dependencies
 datadir="${install_dir}/picrust-1.0.0/picrust/data"
