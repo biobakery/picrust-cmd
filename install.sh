@@ -12,7 +12,7 @@ virtualenv "${install_dir}/env"
 source "${install_dir}/env/bin/activate"
 pip install numpy 
 pip install cogent
-pip install biom-format
+pip install biom-format==1.3.1
 cd "${install_dir}/picrust-1.0.0"
 python setup.py install
 cd - >/dev/null 2>&1
