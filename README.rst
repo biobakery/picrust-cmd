@@ -9,12 +9,22 @@ Be sure to refer to the picrust documentation_.
 .. _documentation: http://picrust.github.io/picrust/index.html
 
 
+Usage
+#####
+Just prefix any picrust script with picrust-cmd::
+  $ picrust-cmd normalize_by_copy_numpy.py ...
+
 Install
 #######
-Installation should be done via the biobakery_pkg command_::
+**For Ubuntu only.**
+Installation should be done via the apt-get command::
   
-  # biobakery_pkg install picrust_cmd
+  # apt-get install -y qiime-cmd
 
+You may need to install the Huttenhower lab repository::
 
-.. _command: https://bitbucket.org/biobakery/biobakery/src/a1859c354bc9a190dc25f8d21a9f0443d86dc6dc/repository/biobakery_pkg?at=default
-
+  $ echo "deb http://huttenhower.sph.harvard.edu/biobakery-shop/deb-packages /" \
+	| sudo bash -c "cat - >> /etc/apt/sources.list "
+ 
+  $ wget -O- -q "http://huttenhower.sph.harvard.edu/biobakery-shop/deb-packages/biobakery.asc" \
+	| sudo apt-key add -
