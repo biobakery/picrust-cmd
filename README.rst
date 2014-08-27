@@ -12,7 +12,8 @@ Be sure to refer to the picrust documentation_.
 Usage
 #####
 Just prefix any picrust script with picrust-cmd::
-  $ picrust-cmd normalize_by_copy_numpy.py ...
+  
+  $ picrust-cmd normalize_by_copy_number.py ...
 
 Install
 #######
